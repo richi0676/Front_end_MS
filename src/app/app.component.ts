@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'front-end';
+  contact = {
+    name : 'OUBADA',
+    email: 'oubada@gmail.com'
+  }
 }

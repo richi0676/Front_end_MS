@@ -1,0 +1,54 @@
+
+<div class="container col-form-label-sm">
+  <table class="table table-striped ">
+    <thead class="table-dark">
+    <tr>
+      <th scope="col">Bill id</th>
+      <th scope="col">Bill Date</th>
+      <th scope="col">actions</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let b of bills._embedded.bills"  >
+      <th scope="row" >{{b.id}}</th>
+      <td>{{b.billingDate}}</td>
+      <td><button class="btn btn-primary" (click)="onGetBill(b)">show</button></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="card" *ngIf="bill">
+    <h5 class="card-header">Bill Details N° {{bill.id}}</h5>
+    <div class="card-body">
+     <h6 class="card-title">Customer Name : {{bill.customer.name}}</h6>
+     <h6 class="card-title">Customer Email : {{bill.customer.email}}</h6>
+      <p class="card-text">{{bill.billingDate}}</p>
+      <table class="table table-light">
+        <thead>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>quantity</th>
+        <th>price</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of bill.productItems">
+          <th scope="row" >{{p.id}}</th>
+          <td>{{p.productName}}</td>
+          <td>{{p.quantity}}</td>
+          <td>{{p.price}} DH </td>
+        </tr>
+        <tr>
+          <th>TOTAL</th>
+          <td></td>
+          <td></td>
+          <th>{{total}} Dh</th>
+        </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+  </div>
+
+</div>
